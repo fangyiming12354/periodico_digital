@@ -20,9 +20,29 @@
 
 .input-demo{
     grid-area: text;
+    display: grid;
+    grid-template-areas:
+    "icon1 name";
+    grid-template-columns: 2rem auto;
+    align-items: center;
+}
+.Icon1{
+    grid-area: icon1;
+    color:#94a3b8;
+    cursor: pointer;
 }
 .input-email{
     grid-area: email ;
+    display: grid;
+    grid-template-areas:
+    "icon2 email";
+    grid-template-columns: 2rem auto;
+    align-items: center;
+}
+.Icon2{
+    grid-area: icon2;
+    color:#94a3b8;
+    cursor: pointer;
 }
 .input-select{
     grid-area:select;
@@ -93,7 +113,13 @@
     -13px -13px 100px #ffffff;
 }
 
-.button-reset,.button-submit {
+.input-back{
+    position: absolute;
+    left:20%;
+    top:3rem;
+}
+
+.button-reset,.button-submit,.button-back {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -109,20 +135,17 @@
     overflow: hidden;
     position: relative;
 }
-.svgIcon1 {
+.svgIcon1,.svgIcon2 {
     width: 24px;
     transition-duration: .3s;
 }
-.svgIcon2{
-    width: 12px;
+.svgIcon3{
+    width: 24px;
     transition-duration: .3s;
+    color: white;
 }
 
-.svgIcon2 path {
-    fill: white;
-}
-
-.svgIcon1 path {
+.svgIcon1 path,.svgIcon2 path {
     fill: white;
 }
 .button-submit:hover {
@@ -145,7 +168,26 @@
     transition-duration: .3s;
     transform: translateX(-100%);
 }
-
+.button-back:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: .3s;
+    background-color: rgb(129, 102, 250);
+    align-items: center;
+}
+.button-back::before {
+    position: absolute;
+    top: -20px;
+    content: "Submit";
+    color: white;
+    transition-duration: .3s;
+    font-size: 2px;
+}
+.button-back:hover .svgIcon3 {
+    width: 24px;
+    transition-duration: .3s;
+    transform: translateX(-100%);
+}
 .button-reset:hover {
     width: 140px;
     border-radius: 50px;
@@ -185,6 +227,21 @@
 }
 
 .button-submit:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(36px) translateX(30%);
+    transition-duration: .3s;
+}
+.button-back::before {
+    position: absolute;
+    align-items: center;
+    content: "Back";
+    color: white;
+    transition-duration: .3s;
+    font-size: 2px;
+}
+
+.button-back:hover::before {
     font-size: 13px;
     opacity: 1;
     transform: translateY(36px) translateX(30%);
