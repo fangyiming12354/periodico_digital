@@ -46,12 +46,41 @@
 }
 .input-select{
     grid-area:select;
+    display: grid;
+    grid-template-areas:
+    "icon3 select";
+    grid-template-columns: 2rem auto;
+    align-items: center;
+}
+.Icon3{
+    grid-area: icon3;
+    color:#94a3b8;
+    cursor: pointer;
 }
 .input-radio{
     grid-area: radio;
+    display: grid;
+    grid-template-areas:
+    "icon4 radio";
+    grid-template-columns: 2rem auto;
+    align-items: center;
 }
+.Icon4{
+    grid-area: icon3;
+    color:#94a3b8;
+}
+
 .input-opinion{
     grid-area: area;
+    display: grid;
+    grid-template-areas:
+    "icon5 area";
+    grid-template-columns: 2rem auto;
+    align-items: center;
+}
+.Icon5{
+    grid-area: icon5;
+    color:#94a3b8;
 }
 .input-submit{
     grid-area: submit;
@@ -72,7 +101,6 @@
 
 .input-radio label {
     font-weight: 600;
-    color: #1e293b;
     margin-bottom: 0.2em;
     display: block;
     font-size: 0.98em;
@@ -86,7 +114,6 @@
     width: 100%;
     padding: 0.45em 0.6em;
     border-radius: 20px;
-    border: 1px solid #bfc9d1;
     font-size: 0.97em;
     margin-bottom: 0.35em;
     transition: border-color 0.2s;
@@ -97,26 +124,10 @@
     margin-bottom: 0;
     position: relative;
 }
-.radio-border{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: none;
-    padding: 1em;
-    background-color: #ccc;
-    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
-    transition: 500ms ease-in-out;
-}
-.radio-border:hover{
-    background-color: white;
-    box-shadow: 13px 13px 100px #969696,
-    -13px -13px 100px #ffffff;
-}
-
 .input-back{
     position: absolute;
-    left:20%;
-    top:3rem;
+    left: 0;
+    bottom:0;
 }
 
 .button-reset,.button-submit,.button-back {
@@ -253,6 +264,18 @@
     gap: 0.3rem;
     --stroke: #666;
     --fill: #ffc73a;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+    border-radius: 0.5em;
+    align-items: center;
+    justify-content: center;
+    grid-area: rating;
+}
+.rating:hover{
+    background-color: white;
+    box-shadow: 13px 13px 100px #969696,
+    -13px -13px 100px #ffffff;
 }
 
 .rating input {
@@ -340,13 +363,17 @@
     box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
     transition: 300ms ease-in-out;
 }
-
 .input-demo .text:focus {
     background-color: white;
-    transform: scale(1.05);
     box-shadow: 13px 13px 100px #969696,
     -13px -13px 100px #ffffff;
 }
+.input-demo .text:hover{
+    border-color: #94a3b8;
+    background-color: #edf2f7;
+}
+
+
 .input-email .email {
     border: none;
     outline: none;
@@ -356,13 +383,16 @@
     box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
     transition: 300ms ease-in-out;
 }
-
 .input-email .email:focus {
     background-color: white;
-    transform: scale(1.05);
     box-shadow: 13px 13px 100px #969696,
     -13px -13px 100px #ffffff;
 }
+.input-email .email:hover{
+    border-color: #94a3b8;
+    background-color: #edf2f7;
+}
+
 .input-select select {
     width: 100%;
     padding: 12px 40px 12px 14px;
@@ -373,19 +403,16 @@
     font-size: 0.95rem;
     cursor: pointer;
     transition: all 1s ease;
-    /* Quitar estilo nativo */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    /* Flecha personalizada */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23647569' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 16px;
 }
-.input-select select:focus {
+.input-select select:hover {
     background-color: white;
-    transform: scale(1.05);
     box-shadow: 13px 13px 100px #969696,
     -13px -13px 100px #ffffff;
 }
@@ -403,21 +430,17 @@
     width: 100%;
 }
 
-/* Efecto hover */
 .textarea-input:hover {
     border-color: #94a3b8;
     background-color: #edf2f7;
 }
 
-/* Efecto focus */
 .textarea-input:focus {
     background-color: white;
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
-    outline: none;
-    transform: scale(1.02);
+    outline: none;;
 }
 
-/* Placeholder estilizado */
 .textarea-input::placeholder {
     color: #94a3b8;
     font-style: italic;
